@@ -1,4 +1,4 @@
-package by.dazerty.mybikegarage.ui.dashboard
+package by.dazerty.mybikegarage.presentation.ui.payments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,14 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import by.dazerty.mybikegarage.databinding.FragmentDashboardBinding
+import by.dazerty.mybikegarage.databinding.FragmentPaymentsBinding
 
-class DashboardFragment : Fragment() {
+class PaymentsFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private var _binding: FragmentPaymentsBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,14 +19,14 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        val paymentsViewModel =
+            ViewModelProvider(this)[PaymentsViewModel::class.java]
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentPaymentsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
+        val textView: TextView = binding.textHome
+        paymentsViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root

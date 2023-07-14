@@ -3,23 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_garage">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="by.dazerty.mybikegarage.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_garage"
+        android:name="by.dazerty.mybikegarage.presentation.ui.garage.GarageFragment"
+        android:label="@string/title_garage"
+        tools:layout="@layout/fragment_payments" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="by.dazerty.mybikegarage.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_payments"
+        android:name="by.dazerty.mybikegarage.presentation.ui.payments.PaymentsFragment"
+        android:label="@string/title_add_payment"
+        tools:layout="@layout/fragment_garage" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="by.dazerty.mybikegarage.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_statistic"
+        android:name="by.dazerty.mybikegarage.presentation.ui.statistic.StatisticFragment"
+        android:label="@string/title_statistic"
+        tools:layout="@layout/fragment_statistic" />
+
+    <fragment
+        android:id="@+id/navigation_warehouse"
+        android:name="by.dazerty.mybikegarage.presentation.ui.warehouse.WarehouseFragment"
+        android:label="@string/title_warehouse"
+        tools:layout="@layout/fragment_statistic" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="by.dazerty.mybikegarage.presentation.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_statistic" />
 </navigation>

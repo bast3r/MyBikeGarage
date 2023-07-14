@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">MyBikeGarage</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_garage">Garage</string>
+    <string name="title_add_payment">Add payment</string>
+    <string name="title_warehouse">Warehouse</string>
+    <string name="title_statistic">Statistic</string>
+    <string name="title_settings">Settings</string>
 </resources>
