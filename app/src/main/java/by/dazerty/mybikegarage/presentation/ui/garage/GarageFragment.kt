@@ -9,6 +9,8 @@ import androidx.core.view.isVisible
 import androidx.core.view.marginBottom
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import by.dazerty.mybikegarage.R
 import by.dazerty.mybikegarage.databinding.FragmentGarageBinding
 import by.dazerty.mybikegarage.presentation.ui.garage.view.BikeItemView
 
@@ -32,6 +34,9 @@ class GarageFragment : Fragment() {
 
         setObservers()
 
+        binding.garageCreateNewBike.setOnClickListener {
+            findNavController().navigate(R.id.garageFragment_to_addNewBikeFragment)
+        }
 //        binding.garageCreateNewBike.setOnClickListener {
 //            binding.garageCreateNewBike.isVisible = false
 //            binding.garageCycleList.isVisible = true

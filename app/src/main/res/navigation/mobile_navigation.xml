@@ -9,13 +9,19 @@
         android:id="@+id/navigation_garage"
         android:name="by.dazerty.mybikegarage.presentation.ui.garage.GarageFragment"
         android:label="@string/title_garage"
-        tools:layout="@layout/fragment_payments" />
+        tools:layout="@layout/fragment_garage" >
+
+        <action
+            android:id="@+id/garageFragment_to_addNewBikeFragment"
+            app:destination="@id/addNewBikeFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_payments"
         android:name="by.dazerty.mybikegarage.presentation.ui.payments.PaymentsFragment"
         android:label="@string/title_add_payment"
-        tools:layout="@layout/fragment_garage" />
+        tools:layout="@layout/fragment_payments" >
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_statistic"
@@ -34,4 +40,9 @@
         android:name="by.dazerty.mybikegarage.presentation.ui.settings.SettingsFragment"
         android:label="@string/title_settings"
         tools:layout="@layout/fragment_statistic" />
+    <fragment
+        android:id="@+id/addNewBikeFragment"
+        android:name="by.dazerty.mybikegarage.presentation.ui.garage.addnew.AddNewBikeFragment"
+        android:label="@string/title_add_new_bike"
+        tools:layout="@layout/fragment_add_new_bike" />
 </navigation>

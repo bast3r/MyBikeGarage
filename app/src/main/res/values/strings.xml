@@ -5,4 +5,13 @@
     <string name="title_warehouse">Warehouse</string>
     <string name="title_statistic">Statistic</string>
     <string name="title_settings">Settings</string>
+    <string name="add_new_bike_name">Set bike name</string>
+    <string name="add_new_bike_brand">Brand</string>
+    <string name="add_new_bike_model">Model</string>
+    <string name="add_new_bike_odometer">Current odometer</string>
+    <string name="add_new_bike_description">Description</string>
+    <string name="add_new_bike_year">Year of production</string>
+    <string name="add_new_bike_is_electric">Is electric?</string>
+    <string name="create_new_bike">Add new bike to garage</string>
+    <string name="title_add_new_bike">Create new bike</string>
 </resources>

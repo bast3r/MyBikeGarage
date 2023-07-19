@@ -15,6 +15,25 @@
         android:layout_marginBottom="8dp"
         android:layout_weight="2" >
 
+        <ImageView
+            android:id="@+id/garage_header_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/garage_background"
+            android:scaleType="centerCrop"
+            />
+
+        <TextView
+            android:id="@+id/garage_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/UserName.TextView"
+            tools:text="User name"
+            android:layout_gravity="bottom"
+            />
+
+
+
     </FrameLayout>
 
     <TextView

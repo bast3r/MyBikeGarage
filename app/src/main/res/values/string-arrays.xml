@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bike_brands">
+        <item>Author</item>
+        <item>Bergamont</item>
+        <item>Bianchi</item>
+        <item>Cannondale</item>
+        <item>Colnago</item>
+        <item>Coorater</item>
+        <item>Cube</item>
+        <item>Felt</item>
+        <item>Fort</item>
+        <item>Fuji</item>
+        <item>Giant</item>
+        <item>Gary Fisher</item>
+        <item>GT</item>
+        <item>Ghost</item>
+        <item>Haro</item>
+        <item>Jamis</item>
+        <item>Leader Fox</item>
+        <item>Kellys</item>
+        <item>KHS</item>
+        <item>Kona</item>
+        <item>Marin</item>
+        <item>Merida</item>
+        <item>Mongoose</item>
+        <item>Norco</item>
+        <item>Rock Machine</item>
+        <item>Santa Cruz</item>
+        <item>Scott</item>
+        <item>Schwinn</item>
+        <item>Specialized</item>
+        <item>Trek</item>
+        <item>Univega</item>
+        <item>Stels</item>
+        <item>Spelli</item>
+    </string-array>
+
+</resources>
