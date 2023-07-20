@@ -5,6 +5,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import by.dazerty.mybikegarage.databinding.ActivityMainBinding
@@ -30,10 +31,12 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_payments,
                 R.id.navigation_statistic,
                 R.id.navigation_warehouse,
-                R.id.navigation_settings
+                R.id.navigation_settings,
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+//        navView.setNavigationOnClickListener { _ ->  NavigationUI.navigateUp(navController, appBarConfiguration) }
     }
 }

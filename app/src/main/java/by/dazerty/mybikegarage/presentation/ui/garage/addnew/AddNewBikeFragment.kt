@@ -1,18 +1,16 @@
 package by.dazerty.mybikegarage.presentation.ui.garage.addnew
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import by.dazerty.mybikegarage.R
 import by.dazerty.mybikegarage.databinding.FragmentAddNewBikeBinding
-import by.dazerty.mybikegarage.databinding.FragmentGarageBinding
-import by.dazerty.mybikegarage.presentation.ui.garage.GarageViewModel
-import by.dazerty.mybikegarage.utils.TextWatcherAdapter
 
 class AddNewBikeFragment : Fragment() {
 
@@ -24,11 +22,7 @@ class AddNewBikeFragment : Fragment() {
     }
 
     private val requiredFields by lazy {
-        listOf(
-            newBikeViewModel.bikeName.value to binding.addNewBikeName,
-            newBikeViewModel.bikeBrand.value to binding.addNewBikeBrand,
-            newBikeViewModel.bikeModel.value to binding.addNewBikeModel
-        )
+        listOf(binding.addNewBikeName, binding.addNewBikeBrand, binding.addNewBikeModel)
     }
 
     override fun onCreateView(
@@ -41,39 +35,37 @@ class AddNewBikeFragment : Fragment() {
         val root: View = binding.root
 
         setObservers()
+        setListeners()
 
         binding.addNewBikeBrand.setAdapter(ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, resources.getStringArray(R.array.bike_brands)))
-
-        binding.addNewBikeSave.setOnClickListener {
-            if (validateScreenData()) {
-                Toast.makeText(context, "Data saved", Toast.LENGTH_LONG).show()
-            }
-        }
 
         return binding.root
     }
 
     private fun setListeners() {
-        binding.addNewBikeName.addTextChangedListener(object : TextWatcherAdapter() {
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                super.onTextChanged(s, start, before, count)
+        binding.addNewBikeSave.setOnClickListener {
+            if (validateScreenData()) {
+                collectDataToModel()
+                newBikeViewModel.saveData()
+                Toast.makeText(context, "Data saved", Toast.LENGTH_LONG).show()
+                findNavController().navigateUp()
+            } else {
+                Toast.makeText(context, "Data is incorrect", Toast.LENGTH_LONG).show()
             }
-        })
+        }
+    }
+
+    private fun collectDataToModel() {
+        newBikeViewModel.bikeName = binding.addNewBikeName.text.toString()
+        newBikeViewModel.bikeBrand = binding.addNewBikeBrand.text.toString()
+        newBikeViewModel.bikeModel = binding.addNewBikeModel.text.toString()
+        newBikeViewModel.bikeIsElectric = binding.addNewBikeIsElectric.isChecked
+        newBikeViewModel.bikeYear = binding.addNewBikeYear.text.toString()
+        newBikeViewModel.bikeOdometer = binding.addNewBikeOdometer.text.toString().toDouble()
+        newBikeViewModel.bikeDescription = binding.addNewBikeDescription.text.toString()
     }
 
     private fun setObservers() {
-        with(newBikeViewModel) {
-            bikeName.observe(viewLifecycleOwner) {
-                binding.addNewBikeName.setText(it)
-            }
-            bikeBrand.observe(viewLifecycleOwner) {
-                binding.addNewBikeBrand.setText(it)
-            }
-            bikeModel.observe(viewLifecycleOwner) {
-                binding.addNewBikeModel.setText(it)
-            }
-        }
 
     }
 
@@ -87,12 +79,20 @@ class AddNewBikeFragment : Fragment() {
         var isValid = true
 
         requiredFields.forEach {
-            if (it.first.isNullOrEmpty()) {
+            if (it.text.isEmpty()) {
                 isValid = false
-                it.second.error = "Should be set"
+                it.error = "Should be set"
             } else {
-                it.second.error = null
+                it.error = null
             }
+        }
+
+        if (binding.addNewBikeYear.text.isNullOrBlank()) {
+            binding.addNewBikeYear.setText("2023")
+        }
+
+        if (binding.addNewBikeOdometer.text.isNullOrEmpty()) {
+            binding.addNewBikeOdometer.setText("0")
         }
 
         return isValid
